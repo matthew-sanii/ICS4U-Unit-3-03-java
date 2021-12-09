@@ -1,3 +1,6 @@
+import java.util.Scanner;
+import java.util.InputMismatchException;
+
 final class Stack {
 
   /**
@@ -18,6 +21,7 @@ final class Stack {
     * @param args Name of file containing a string of numbers
     */
   public static void main(final String[] args) {
+    final Scanner userInput = new Scanner(System.in);
     final int min = 1;
     final int max = 10;
     final int multi = 4;
@@ -30,8 +34,24 @@ final class Stack {
       newStack.push(randomizer);
       times -= 1;
     }
+    System.out.println("What do you want to add? ");
+    try {
+      final int input = userInput.nextInt();
+      newStack.push(input);
+    } catch (InputMismatchException errorCode) {
+      System.out.println(errorCode);
+      System.exit(0);
+    }
     newStack.showStack();
     newStack.pop();
     newStack.showStack();
+    while (true) {
+      try {
+        int info = newStack.pop();
+      } catch (IndexOutOfBoundsException errorCode) {
+        System.out.println(errorCode);
+        System.exit(0);
+      }
   }
+}
 }

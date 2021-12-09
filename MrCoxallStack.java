@@ -37,8 +37,9 @@ public class MrCoxallStack {
       + place);
       theStack.remove(0);
       return(place);
-    } catch (ArrayIndexOutOfBoundsException e) {
-      return(-1);
+    } catch (ArrayIndexOutOfBoundsException errorCode) {
+      System.out.println(errorCode);
+      return(0);
     }
   }
 }
